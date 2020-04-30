@@ -19,6 +19,10 @@ void UDPStripControl::begin(const char *addr, uint16_t port, uint16_t num_leds){
     this->update();
 }
 
+void UDPStripControl::end(void){
+    delete[] this->data_arr;
+}
+
 void UDPStripControl::update(void){
     // Sending over information via udp
     udp_server_sendto(this->arr_size, this->data_arr, &this->led_strip_addr);

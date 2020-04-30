@@ -20,6 +20,8 @@ class UDPStripControl{
     public:
     // Initializer for LED strip over udp communication
     void begin(const char *addr, uint16_t port, uint16_t num_leds);
+    // Deconstructor so we don't leave any unallocated data. 
+    void end(void);
     
     // Actually involves sending the information
     void update(void);
