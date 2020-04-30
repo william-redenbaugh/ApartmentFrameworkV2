@@ -2,7 +2,6 @@
 #include <iostream>
 
 void UDPStripControl::begin(const char *addr, uint16_t port, uint16_t num_leds){
-    udp_server_socket_open(4400);
     this->led_strip_addr.sin_family = AF_INET; 
     this->led_strip_addr.sin_port = htons(port);
     this->led_strip_addr.sin_addr.s_addr = inet_addr(addr);
@@ -36,3 +35,10 @@ void UDPStripControl::set_led(uint8_t r, uint8_t g, uint8_t b, uint16_t led){
         this->data_arr[led * 3 + 2] = b;
     }
 }
+
+void UDPStripControl::set_strip(uint8_t r, uint8_t g, uint8_t b){
+    for(uint16_t i = 0; i < this->num_leds; i++){
+        this->set_led(r, g, b, i);
+    }
+}
+

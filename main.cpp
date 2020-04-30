@@ -3,6 +3,10 @@
 #include "HeartControl.hpp"
 #include "ClockControl.hpp"
 
+// Cap N Proto Libraries.  Unnecesarry for now, but useful later perhaps?
+#include <capnp/message.h>
+#include <capnp/serialize-packed.h>
+
 int main(void){
     UDPStripControl strip; 
     const char *strip_ip_addr = "192.168.1.2";
