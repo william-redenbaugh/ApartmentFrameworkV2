@@ -13,6 +13,8 @@ void MatrixControl::begin(const char *addr, uint16_t port, uint8_t x, uint8_t y)
     for(uint32_t i = 0; i < x * y * 3 + 100; i++){
         this->data_arr[i] = 0; 
     }
+    
+    this->update();
 }
 
 void MatrixControl::end(void){
