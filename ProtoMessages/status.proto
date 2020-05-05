@@ -1,6 +1,0 @@
-syntax = "proto3";
-
-message BoardStatus{
-    int32 free_mem_kb = 1; 
-    int32 status = 2;
-}
