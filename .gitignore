@@ -1,3 +1,5 @@
 *.o
 *LEDControl
 *src
+*.code-workspace
+*.vscode
