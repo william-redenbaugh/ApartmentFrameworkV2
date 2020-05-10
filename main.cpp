@@ -6,6 +6,7 @@
 #include "StripAnimations.hpp"
 
 // Protobuffer stuff. 
+/*
 #include "status.pb.h"
 #include "messagedata.pb.h"
 #include "pb.h"
@@ -16,12 +17,14 @@
 #include <capnp/message.h>
 #include <capnp/serialize-packed.h>
 
+*/
+
 // Allows us to test and make sure protobuffers are working properly. 
-void testing_protobuffers(void);
+//void testing_protobuffers(void);
 
 int main(void){
     // Test to make sure protobufffers work properly. 
-    testing_protobuffers();
+    //testing_protobuffers();
 
     // Remote control of strip testing. 
     UDPStripControl strip; 
@@ -53,6 +56,8 @@ int main(void){
 
     return 0;
 }
+
+/*
 
 void testing_protobuffers(void){
     BoardStatus board_status; 
@@ -91,3 +96,4 @@ void testing_message_size_pb(void){
         printf("Testing message data size succedded! \n");
     }
 }
+*/
