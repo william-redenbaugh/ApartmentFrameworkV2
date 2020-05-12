@@ -10,6 +10,9 @@ CC=g++ -std=c++11 -pthread -L$(RGB_LIBDIR) -l$(RGB_LIBRARY_NAME) -lrt -lm -lpthr
 CFLAGS=-I.
 DEPS = 
 
+$(RGB_LIBRARY): FORCE
+        $(MAKE) -C $(RGB_LIBDIR)
+		
 %.o: %.c $(DEPS)
 	$(CC) -c -o $@ $< $(CFLAGS)
 
