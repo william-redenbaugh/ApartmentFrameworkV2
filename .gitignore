@@ -1,5 +1,6 @@
 *.o
 *LEDControl
+*PiMatrix
 *src
 *.code-workspace
 *.vscode
