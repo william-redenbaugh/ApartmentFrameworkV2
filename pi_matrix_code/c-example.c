@@ -7,7 +7,14 @@
 #include <sys/socket.h> 
 #include <stdlib.h> 
 #include <netinet/in.h> 
-#include <string.h> 
+#include <string.h>
+
+#include "pb.h"
+#include "pb_common.h"
+#include "pb_encode.h"
+#include "pb_decode.h"
+#include "messagedata.pb.h"
+
 
 // Global variables for our udp server. 
 // Preprocessor

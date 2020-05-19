@@ -1,6 +1,0 @@
-caimport rgbmatrix
-
-def main():
-    pass
-
-main()
