@@ -1,4 +1,4 @@
-import rgbmatrix
+caimport rgbmatrix
 
 def main():
     pass
