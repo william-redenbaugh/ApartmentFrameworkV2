@@ -17,6 +17,16 @@ all : $(BINARIES)
 $(RGB_LIBRARY): FORCE
 	$(MAKE) -C $(RGB_LIBDIR)
 
+demo : demo-main.o $(RGB_LIBRARY)
+	$(CXX) $< -o $@ $(LDFLAGS)
+
+minimal-example : minimal-example.o
+input-example : input-example.o
+text-example: text-example.o
+scrolling-text-example : scrolling-text-example.o
+clock : clock.o
+ledcat : ledcat.o
+
 # All the binaries that have the same name as the object file.q
 % : %.o $(RGB_LIBRARY)
 	$(CXX) $< -o $@ $(LDFLAGS)
@@ -25,7 +35,7 @@ $(RGB_LIBRARY): FORCE
 # Since the C example uses the C++ library underneath, which depends on C++
 # runtime stuff, you still have to also link -lstdc++
 c-example : c-example.o $(RGB_LIBRARY)
-	$(CC) $< -o $@ $(LDFLAGS) -lstdc++
+	$(CXX) $< -o $@ $(LDFLAGS) -lstdc++
 
 %.o : %.cc
 	$(CXX) -I$(RGB_INCDIR) $(CXXFLAGS) -c -o $@ $<
