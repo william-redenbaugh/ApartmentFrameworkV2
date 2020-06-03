@@ -1,7 +1,18 @@
 #ifndef _MATRIX_CONTROL_HPP
 #define _MATRIX_CONTROL_HPP
 
+// Low level UDP integration.
 #include "udp_low.hpp"
+
+// HSV to RGB convertion format. 
+#include "hsv_rgb_conv.hpp"
+
+// Protobuffer stuff. 
+#include "messagedata.pb.h"
+#include "pb.h"
+#include "pb_encode.h"
+#include "pb_decode.h"
+
 
 class MatrixControl{
     public: 
@@ -13,6 +24,9 @@ class MatrixControl{
     
         // Set the LED to a particular color. 
         void set_led(uint8_t r, uint8_t g, uint8_t b, uint8_t x, uint8_t y);
+
+        // Sets the LED to a particular HSV color
+        void set_led_hsv(uint8_t h, uint8_t s, uint8_t v, uint8_t x, uint8_t y);
 
         // Push data up via UDP.
         void update(void);

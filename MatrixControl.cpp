@@ -11,15 +11,37 @@ void MatrixControl::begin(const char *addr, uint16_t port, uint8_t x, uint8_t y)
     this->led_strip_addr.sin_port = htons(port);
     this->led_strip_addr.sin_addr.s_addr = inet_addr(addr);
 
-    this->data_arr = new uint8_t[x * y * 3 + 100];
-    this->arr_size = x * y * 3 + 100;
+    // Generate array on heap that holds all of our matrix information
+    this->data_arr = new uint8_t[x * y * 3 + 16];
+    
+    // Set the size of our array. 
+    this->arr_size = x * y * 3 + 16;
+    
+    // Clears our the data. 
+    memset(this->data_arr, 0, x*y*3+16);
+
+    {
+    // Generates the signature message that tells the device
+    // on the other side that they are getting matrix data. 
+    uint8_t buffer[16];
+    // Message struct. 
+    MessageData message_data_out;
+    // Populate message data fields  
+    message_data_out.message_size = x * y * 3;
+    message_data_out.message_type = MessageData_MessageType_MATRIX_DATA;
+    // Serialize into buffer
+    pb_ostream_t msg_out = pb_ostream_from_buffer(buffer, sizeof(buffer));
+    pb_encode(&msg_out, MessageData_fields, &message_data_out);
+    // Copy buffer over to the main array buffer. 
+    for(uint8_t i = 0; i < 16; i++)
+        this->data_arr[i] = buffer[i];
+    }
+
+    // Set x and y size. 
     this->x = x; 
     this->y = y; 
 
-    for(uint32_t i = 0; i < x * y * 3 + 100; i++){
-        this->data_arr[i] = 0; 
-    }
-    
+    // Clear display. 
     this->update();
 }
 
@@ -30,7 +52,7 @@ Parameters: none
 Returns: none
 */
 void MatrixControl::end(void){
-    delete[] this->data_arr;
+    //delete[] this->data_arr;
 }
 
 /*
@@ -46,9 +68,17 @@ void MatrixControl::set_led(uint8_t r, uint8_t g, uint8_t b, uint8_t x, uint8_t 
 
     // Figuring out where to put the data into the data array. 
     uint32_t spot = (y * this->x + x) * 3; 
-    this->data_arr[spot] = r; 
-    this->data_arr[spot + 1] = g; 
-    this->data_arr[spot+ 2] = b; 
+    this->data_arr[spot + 16] = r; 
+    this->data_arr[spot + 17] = g; 
+    this->data_arr[spot+ 18] = b; 
+}
+
+void MatrixControl::set_led_hsv(uint8_t h, uint8_t s, uint8_t v, uint8_t x, uint8_t y){
+
+    hsv hsv_buff = {(float)h/255, (float)s/255, (float)v/255 };
+    rgb rgb_buff = hsv2rgb(hsv_buff);   
+
+    this->set_led((uint8_t)rgb_buff.r * 255, (uint8_t)rgb_buff.g * 255, (uint8_t)rgb_buff.b * 255, x, y);
 }
 
 /*
