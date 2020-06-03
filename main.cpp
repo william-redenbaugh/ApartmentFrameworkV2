@@ -36,10 +36,15 @@ int main(void){
     
     while(1)
         test_matrix_hsv_animation(&matrix_control);
-        
+
     return 0;
 }
 
+/**************************************************************************/
+/*!
+    @brief Quick test of our matrix that allows us to test filling it up. 
+*/
+/**************************************************************************/
 void test_matrix_fill(MatrixControl *matrix){
     // Quick test by filling in the box of one of our matrices. 
     for(uint8_t y = 0; y < 32; y++){
@@ -51,6 +56,11 @@ void test_matrix_fill(MatrixControl *matrix){
     }
 }
 
+/**************************************************************************/
+/*!
+    @brief Allows us to quickly test the hsv functionality of our matrix animation handler. 
+*/
+/**************************************************************************/
 void test_matrix_hsv_animation(MatrixControl *matrix){
     for(uint8_t h = 0; h < 255; h++){
         for(uint8_t y = 0; y < 32; y++){
@@ -64,6 +74,11 @@ void test_matrix_hsv_animation(MatrixControl *matrix){
     }
 }
 
+/**************************************************************************/
+/*!
+    @brief Tests our MessageData Data serialization an deserialization data. 
+*/
+/**************************************************************************/
 void testing_message_size_pb(void){
     // Generate a message and populate data. 
     MessageData message_data_out;

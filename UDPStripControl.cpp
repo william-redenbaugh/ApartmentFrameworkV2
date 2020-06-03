@@ -1,12 +1,12 @@
 #include "UDPStripControl.h"
 #include <iostream>
 
-/*
-Function: const char *addr, uint16_t port, uint16_t num_leds
-Description: sets up communicatation with a strip controlled via udp
-Parameters: const char *addr(string ip address of strip), uint16_t port(port of strip), uint16_t num_leds(number of LEDs in strip)
-Return: none
+/**************************************************************************/
+/*!
+    @brief Starts up our UDP controling. 
+    @param const char *addr(the ip address of our device as a string), uint16_t port(port of our device), uint16_t num_leds(number of LEDs our device has. )
 */
+/**************************************************************************/
 void UDPStripControl::begin(const char *addr, uint16_t port, uint16_t num_leds){
     this->led_strip_addr.sin_family = AF_INET; 
     this->led_strip_addr.sin_port = htons(port);
@@ -24,33 +24,31 @@ void UDPStripControl::begin(const char *addr, uint16_t port, uint16_t num_leds){
     this->update();
 }
 
-/*
-Function: end(void)
-Description: dereferences allocated array for controlling strip via UDP
-Parameters: none
-Return: none 
+/**************************************************************************/
+/*!
+    @brief Frees up the memory that this object uses. 
 */
+/**************************************************************************/
 void UDPStripControl::end(void){
     delete[] this->data_arr;
 }
 
-/*
-Function: update(void)
-Description: sends UDP array buffer to LED strip
-Parameters: none
-Return: none
+/**************************************************************************/
+/*!
+    @brief sends out our data via udp. 
 */
+/**************************************************************************/
 void UDPStripControl::update(void){
     // Sending over information via udp
     udp_server_sendto(this->arr_size, this->data_arr, &this->led_strip_addr);
 }
 
-/*
-Function: set_led(uint8_t r, uint8_t g, uint8_t b, uint16_t led)
-Description: allows us to modify array buffer to show LED strip changes
-Parameters: uint8_t r, uint8_t g, uint8_t b,(rgb color value of pixel) uint16_t led(position down the strip)
-Return: 
+/**************************************************************************/
+/*!
+    @brief sets the LED to a particular value in our array. 
+    @param uint8_t r(red col 8 bit), uint8_t g(green col 8 bit), uint8_t b(blue col 8 bit), uin16_t led(position of LED in array)
 */
+/**************************************************************************/
 void UDPStripControl::set_led(uint8_t r, uint8_t g, uint8_t b, uint16_t led){
     // Don't wanna go out of bounds :0 and cause a segfault :(
     if(led < this->num_leds){
@@ -60,12 +58,12 @@ void UDPStripControl::set_led(uint8_t r, uint8_t g, uint8_t b, uint16_t led){
     }
 }
 
-/*
-Function: set_strip(uint8_t r, uint8_t g, uint8_t b)
-Description: allows us to modify whole strip array buffer to a specific color 
-Parameters: uint8_t r, uint8_t g, uint8_t b(rgb color value. )
-Return: none
+/**************************************************************************/
+/*!
+    @brief Sets all of our LEDs to a particular rgb value.  
+    @param uint8_t r(red col 8 bit), uint8_t g(green col 8 bit), uint8_t b(blue col 8 bit)
 */
+/**************************************************************************/
 void UDPStripControl::set_strip(uint8_t r, uint8_t g, uint8_t b){
     for(uint16_t i = 0; i < this->num_leds; i++){
         this->set_led(r, g, b, i);

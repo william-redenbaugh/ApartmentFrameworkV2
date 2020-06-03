@@ -16,6 +16,11 @@
 // Tiny little UDP wrappper that simplifies some things. 
 #include "udp_low.hpp"
 
+/**************************************************************************/
+/*!
+    @brief UDP Message Handler for controlling our clock. 
+*/
+/**************************************************************************/
 class ClockControl{
     public: 
     void begin(const char *addr, uint16_t port);

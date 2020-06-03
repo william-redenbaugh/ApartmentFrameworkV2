@@ -13,7 +13,11 @@
 #include "pb_encode.h"
 #include "pb_decode.h"
 
-
+/**************************************************************************/
+/*!
+    @brief Matrix control object that lets us remote manage our LED matrix via UDP. 
+*/
+/**************************************************************************/
 class MatrixControl{
     public: 
         // Initializer for LED strip over udp communication

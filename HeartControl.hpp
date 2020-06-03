@@ -16,6 +16,11 @@
 // Tiny little UDP wrappper that simplifies some things. 
 #include "udp_low.hpp"
 
+/**************************************************************************/
+/*!
+    @brief UDP Control Manager for sending enumerated heart control commands. 
+*/
+/**************************************************************************/
 class HeartControl{
     public:
     // Initialization command

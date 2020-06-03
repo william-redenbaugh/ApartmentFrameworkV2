@@ -16,6 +16,11 @@
 // Tiny little UDP wrappper that simplifies some things. 
 #include "udp_low.hpp"
 
+/**************************************************************************/
+/*!
+    @brief Class that lets us control and management our LED strips. 
+*/
+/**************************************************************************/
 class UDPStripControl{
     public:
     // Initializer for LED strip over udp communication

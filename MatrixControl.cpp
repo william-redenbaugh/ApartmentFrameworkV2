@@ -1,11 +1,11 @@
 #include "MatrixControl.hpp"
 
-/*
-Function:begin(const char *addr, uint16_t port, uint8_t x, uint8_t y) 
-Description: Allows us to setup the udp communication to our RGB LED matrix. 
-Parameters: const char *addr(the string of the ip address), uint16_t port(port of device), uint8_t x, uint8_t y(device x and y pixel matrix size)
-Returns: none
+/**************************************************************************/
+/*!
+    @brief Allows us to setup the udp communication to our RGB LED matrix. 
+    @param const char *addr(the string of the ip address), uint16_t port(port of device), uint8_t x, uint8_t y(device x and y pixel matrix size)
 */
+/**************************************************************************/
 void MatrixControl::begin(const char *addr, uint16_t port, uint8_t x, uint8_t y){
     this->led_strip_addr.sin_family = AF_INET; 
     this->led_strip_addr.sin_port = htons(port);
@@ -45,22 +45,21 @@ void MatrixControl::begin(const char *addr, uint16_t port, uint8_t x, uint8_t y)
     this->update();
 }
 
-/*
-Function: end(void)
-Description: de allocates the array that we keep all our matrix UDP data in. 
-Parameters: none
-Returns: none
+/**************************************************************************/
+/*!
+    @brief de allocates the array that we keep all our matrix UDP data in.
 */
+/**************************************************************************/
 void MatrixControl::end(void){
     //delete[] this->data_arr;
 }
 
-/*
-Function: set_led(uint8_t r, uint8_t g, uint8_t b, uint8_t x, uint8_t y)
-Description: changes the udp buffer to represent change in the led pixel we want to see
-Parameters:uint8_t r, uint8_t g, uint8_t b,(pixel rgb color value) uint8_t x, uint8_t y(pixel position)
-Returns: none
+/**************************************************************************/
+/*!
+    @brief changes the udp buffer to represent change in the led pixel we want to see
+    @param uint8_t r, uint8_t g, uint8_t b,(pixel rgb color value) uint8_t x, uint8_t y
 */
+/**************************************************************************/
 void MatrixControl::set_led(uint8_t r, uint8_t g, uint8_t b, uint8_t x, uint8_t y){
     // If pixels are out of bounds... 
     if(x > this->x & y > this->y)
@@ -73,6 +72,12 @@ void MatrixControl::set_led(uint8_t r, uint8_t g, uint8_t b, uint8_t x, uint8_t 
     this->data_arr[spot+ 18] = b; 
 }
 
+/**************************************************************************/
+/*!
+    @brief changes the udp buffer to represent change in the led pixel we want to see with hsv data. 
+    @param uint8_t h(hue value), uint8_t s(saturation value),  uint8_t v(value), uint8_t x(x pos), uint8_t y(y pos)
+*/
+/**************************************************************************/
 void MatrixControl::set_led_hsv(uint8_t h, uint8_t s, uint8_t v, uint8_t x, uint8_t y){
 
     hsv hsv_buff = {(float)h/255, (float)s/255, (float)v/255 };
@@ -81,12 +86,11 @@ void MatrixControl::set_led_hsv(uint8_t h, uint8_t s, uint8_t v, uint8_t x, uint
     this->set_led((uint8_t)rgb_buff.r * 255, (uint8_t)rgb_buff.g * 255, (uint8_t)rgb_buff.b * 255, x, y);
 }
 
-/*
-Function: update(void)
-Description: Sends the UDP array buffer to the desired device. 
-Parameters:none
-Returns: none
+/**************************************************************************/
+/*!
+    @brief Sends the UDP array buffer to the desired device. 
 */
+/**************************************************************************/
 void MatrixControl::update(void){
     // Sending over information via udp
     udp_server_sendto(this->arr_size, this->data_arr, &this->led_strip_addr);

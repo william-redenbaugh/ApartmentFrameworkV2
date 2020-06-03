@@ -16,6 +16,12 @@ Description: Allows us to setup/host a udp server with a specified port.
 Parameters: uint16_t port(port that we want to use for our server)
 Returns: none
 */
+/**************************************************************************/
+/*!
+    @brief Allows us to setup/host a udp server with a specified port. 
+    @param uint16_t port(port that we want to use for our server)
+*/
+/**************************************************************************/
 void udp_server_socket_open(uint16_t port){
     server_socket_fd = socket(AF_INET, SOCK_DGRAM, 0);
     if(server_socket_fd < 0){
@@ -34,28 +40,34 @@ void udp_server_socket_open(uint16_t port){
     bind(server_socket_fd, (struct sockaddr*) &server_address, sizeof(server_address));
 }
 
-/*
-Function: udp_server_receive_blocking(uint8_t *array)
-Description: allows to check data we received from the UDP clients.  
-Parameters: uint8_t *array
-Returns: none
+/**************************************************************************/
+/*!
+    @brief allows to check data we received from the UDP clients.  
+    @param uint8_t *array
 */
+/**************************************************************************/
 uint16_t udp_server_receive_blocking(uint8_t *array){
     socklen_t len = 0;     
     uint16_t n = recvfrom(server_socket_fd, (char*)array, MAXLINE, MSG_WAITALL, (struct sockaddr*)&client_address, &len);
     return n;
 }
 
-/*
-Function: 
-Description: 
-Parameters: 
-Return: 
+/**************************************************************************/
+/*!
+    @brief allows us to send our data to the returning addres of the device that sent us data before. 
+    @param uint16_t packet_size(size of our packet), uint8_t *array(pointer to array of information)
 */
+/**************************************************************************/
 void udp_server_send(uint16_t packet_size, uint8_t *array){
     sendto(server_socket_fd, array, packet_size, 0, (struct sockaddr*) &client_address, sizeof(client_address));
 }
 
+/**************************************************************************/
+/*!
+    @brief allows us to send our data to an address
+    @param uint16_t packet_size(size of our packet), uint8_t *array(pointer to array of information), struct sockaddr_in *rec_sock(pointer )
+*/
+/**************************************************************************/
 void udp_server_sendto(uint16_t packet_size, uint8_t* array, struct sockaddr_in *rec_sock){
     sendto(server_socket_fd, array, packet_size, 0, (struct sockaddr*) rec_sock, sizeof(client_address));
 }

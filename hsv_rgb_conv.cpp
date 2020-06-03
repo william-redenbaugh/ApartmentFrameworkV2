@@ -3,6 +3,16 @@
 hsv rgb2hsv(rgb in);
 rgb hsv2rgb(hsv in);
 
+// CREDIT FOR HSV TO RGB CONVERSTION GOES TO THIS GUY: https://stackoverflow.com/questions/3018313/algorithm-to-convert-rgb-to-hsv-and-hsv-to-rgb-in-range-0-255-for-both
+// STACKOVERFLOW POSTERS ARE OUR OVERLOARDS. 
+
+/**************************************************************************/
+/*!
+    @brief Converts RGB data into HSV data
+    @param rgb struct. 
+    @returns hsv struct. 
+*/
+/**************************************************************************/
 hsv rgb2hsv(rgb in){
     hsv out;
     double min, max, delta;
@@ -48,7 +58,13 @@ hsv rgb2hsv(rgb in){
     return out;
 }
 
-
+/**************************************************************************/
+/*!
+    @brief Converts HSV data into RGB data
+    @param hsv struct. 
+    @returns rgb struct. 
+*/
+/**************************************************************************/
 rgb hsv2rgb(hsv in){
     double hh, p, q, t, ff;
     long i;
