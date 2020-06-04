@@ -15,4 +15,5 @@ typedef struct HsvColor{
 
 HsvColor RgbToHsv(RgbColor rgb);
 RgbColor HsvToRgb(HsvColor hsv);
+
 #endif 

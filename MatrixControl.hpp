@@ -35,6 +35,9 @@ class MatrixControl{
         // Push data up via UDP.
         void update(void);
 
+        RgbColor return_rgb(uint8_t x, uint8_t y);
+        HsvColor return_hsv(uint8_t x, uint8_t y);
+
     private: 
         uint8_t x, y;
         

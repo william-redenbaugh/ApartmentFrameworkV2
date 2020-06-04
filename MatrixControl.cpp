@@ -93,3 +93,28 @@ void MatrixControl::update(void){
     // Sending over information via udp
     udp_server_sendto(this->arr_size, this->data_arr, &this->led_strip_addr);
 }
+
+RgbColor MatrixControl::return_rgb(uint8_t x, uint8_t y){
+    
+    RgbColor rgb;
+
+    // Which pixel do we want to return? 
+    uint32_t spot = (y * this->x + x) * 3; 
+    rgb.r = this->data_arr[spot + 16]; 
+    rgb.g = this->data_arr[spot + 17]; 
+    rgb.b = this->data_arr[spot+ 18];
+    return rgb;
+}
+
+HsvColor MatrixControl::return_hsv(uint8_t x, uint8_t y){
+    
+    RgbColor rgb;
+    
+    uint32_t spot = (y * this->x + x) * 3; 
+    rgb.r = this->data_arr[spot + 16]; 
+    rgb.g = this->data_arr[spot + 17]; 
+    rgb.b = this->data_arr[spot+ 18];
+    
+    HsvColor hsv = RgbToHsv(rgb);
+    return hsv;
+}
