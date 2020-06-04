@@ -78,12 +78,10 @@ void MatrixControl::set_led(uint8_t r, uint8_t g, uint8_t b, uint8_t x, uint8_t 
     @param uint8_t h(hue value), uint8_t s(saturation value),  uint8_t v(value), uint8_t x(x pos), uint8_t y(y pos)
 */
 /**************************************************************************/
-void MatrixControl::set_led_hsv(uint8_t h, uint8_t s, uint8_t v, uint8_t x, uint8_t y){
-
-    hsv hsv_buff = {(float)h/255, (float)s/255, (float)v/255 };
-    rgb rgb_buff = hsv2rgb(hsv_buff);   
-
-    this->set_led((uint8_t)rgb_buff.r * 255, (uint8_t)rgb_buff.g * 255, (uint8_t)rgb_buff.b * 255, x, y);
+void MatrixControl::set_led_hsv(uint8_t h, uint8_t s, uint8_t v, uint8_t x, uint8_t y){  
+    HsvColor hsv = {h, s, v};
+    RgbColor rgb = HsvToRgb(hsv);
+    this->set_led((uint8_t)rgb.r , (uint8_t)rgb.g, (uint8_t)rgb.b, x, y);
 }
 
 /**************************************************************************/

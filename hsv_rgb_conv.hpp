@@ -1,19 +1,18 @@
 #ifndef _HSV_RGB_CONV_HPP
 #define _HSV_RGB_CONV_HPP
 
-typedef struct {
-    double r;       
-    double g;       
-    double b;       
-} rgb;
+typedef struct RgbColor{
+    unsigned char r;
+    unsigned char g;
+    unsigned char b;
+} RgbColor;
 
-typedef struct {
-    double h;       
-    double s;       
-    double v;       
-} hsv;
+typedef struct HsvColor{
+    unsigned char h;
+    unsigned char s;
+    unsigned char v;
+} HsvColor;
 
-hsv rgb2hsv(rgb in);
-rgb hsv2rgb(hsv in);
-
+HsvColor RgbToHsv(RgbColor rgb);
+RgbColor HsvToRgb(HsvColor hsv);
 #endif 
