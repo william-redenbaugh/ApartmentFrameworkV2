@@ -1,9 +1,19 @@
 #include "Pcars.hpp"
 
+/**************************************************************************/
+/*!
+    @brief Sets up communication with the project CARs UDP client
+*/
+/**************************************************************************/
 void ProjectCARSParser::begin(void){
     udp_server.open(PROJECT_CARS_DEFAULT_UDP_PORT, 2048);
 }
 
+/**************************************************************************/
+/*!
+    @brief Reads and parses data from  Project CARs
+*/
+/**************************************************************************/
 void ProjectCARSParser::parse_data(void){
     uint16_t packet_size = udp_server.receive_blocking(packet);     
 

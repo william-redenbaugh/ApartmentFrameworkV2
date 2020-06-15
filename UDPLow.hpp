@@ -12,6 +12,11 @@
 #include <netinet/in.h> 
 #include <string.h> 
 
+/**************************************************************************/
+/*!
+    @brief UDP wrapper that allows us to encapsulate all of UDP server's functions into something a little easier to use. 
+*/
+/**************************************************************************/
 class UDPWrapper{
     public: 
         void open(uint16_t port, uint16_t maxline);
