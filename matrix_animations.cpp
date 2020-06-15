@@ -81,8 +81,7 @@ void fade(MatrixControl *matrix, RgbColor col, volatile bool *interrupt){
                 
             }
         }
-        if(x_complete == 64 && y_complete == 64)
-            break;
+        
     }
 }
 
