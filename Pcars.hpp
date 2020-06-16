@@ -10,14 +10,15 @@
 // Credit for the UDP parsing goes to this guy --> https://github.com/binweg/pcars_display/blob/master/display.ino
 // I took a bunch of his code and added my own stuff to it for the scope of this project. 
 
+/**************************************************************************/
+/*!
+    @brief Project car UDP communication parsing class. 
+*/
+/**************************************************************************/
 class ProjectCARSParser{
     public: 
         void begin(void);
-        void parse_data(void);
-
-    private: 
-        UDPWrapper udp_server; 
-        uint8_t packet[2048];
+        void read_parse_data(void);
 
         // Car and track information.
         char car_name[64];
@@ -25,27 +26,8 @@ class ProjectCARSParser{
         char track_location[64];
         char track_variation[64];
 
-        // State of the race
-        uint8_t race_state;
-
-        bool button_status;
-
-        uint8_t current_lap;
-        uint8_t oldcurrent_lap;
-        char current_lap_field[3];
-        uint8_t sector;
-
-        uint16_t current_lapDistance;
-
-        uint16_t joy_pad;
-        uint8_t dPad;
-
-        // Gear information
-        char gear_field; 
-
         uint16_t rpm;
         uint16_t max_rpm;
-        char rpm_field[6];
 
         float rpm_ratio;
         uint8_t fuel_capacity;
@@ -61,6 +43,42 @@ class ProjectCARSParser{
         float current_time;
         float oldcurrent_time;
 
+        uint16_t tyre_tread_temp_lf;
+        uint16_t tyre_tread_temp_rf;
+        uint16_t tyre_tread_temp_lr;
+        uint16_t tyre_tread_temp_rr;
+        
+        int16_t break_temp_lf;
+        int16_t break_temp_rf;
+        int16_t break_temp_lr;
+        int16_t break_temp_rr;
+
+        uint8_t current_lap;
+        uint8_t oldcurrent_lap;
+
+        // Gear information
+        char gear_field;
+                
+    private: 
+        UDPWrapper udp_server; 
+        uint8_t packet[2048];
+
+        // State of the race
+        uint8_t race_state;
+
+        bool button_status;
+        
+        char current_lap_field[3];
+        uint8_t sector;
+
+        uint16_t current_lapDistance;
+
+        uint16_t joy_pad;
+        uint8_t dPad;
+
+
+        char rpm_field[6];
+
         char fuel_amount_field[5];
         char fuel_consumption_field[5];
         char fuel_laps_remaining_field[5];
@@ -69,19 +87,11 @@ class ProjectCARSParser{
         char spd_field[4];
         char last_lap_field[10];
 
-        uint16_t tyre_tread_temp_lf;
-        uint16_t tyre_tread_temp_rf;
-        uint16_t tyre_tread_temp_lr;
-        uint16_t tyre_tread_temp_rr;
         char tyre_tread_temp_lf_field[5];
         char tyre_tread_temp_rf_field[5];
         char tyre_tread_temp_lr_field[5];
         char tyre_tread_temp_rr_field[5];
 
-        int16_t break_temp_lf;
-        int16_t break_temp_rf;
-        int16_t break_temp_lr;
-        int16_t break_temp_rr;
         char break_temp_lf_field[5];
         char break_temp_rf_field[5];
         char break_temp_lr_field[5];

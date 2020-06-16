@@ -14,7 +14,7 @@ void ProjectCARSParser::begin(void){
     @brief Reads and parses data from  Project CARs
 */
 /**************************************************************************/
-void ProjectCARSParser::parse_data(void){
+void ProjectCARSParser::read_parse_data(void){
     uint16_t packet_size = udp_server.receive_blocking(packet);     
 
     // If there is data in the packet. 
