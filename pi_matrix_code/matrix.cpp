@@ -26,7 +26,7 @@ int setup_matrix(int argc, char **argv){
   matrix_information.offscreen_canvas = led_matrix_create_offscreen_canvas(matrix_information.matrix);
   led_canvas_get_size(matrix_information.offscreen_canvas, &matrix_information.width, &matrix_information.height);
   fprintf(stderr, "Size: %dx%d. Hardware gpio mapping: %s\n",
-          matrix_information.width, matrix_information.height, matrix_information.options.hardware_mapping);	  
+          matrix_information.width, matrix_information.height, matrix_information.options.hardware_mapping);	 
 }
 
 void update_matrix_information(uint8_t *udp_arr){
