@@ -1,3 +1,18 @@
 [submodule "pi_matrix_code/rpi-rgb-led-matrix"]
 	path = pi_matrix_code/rpi-rgb-led-matrix
 	url = git@github.com:hzeller/rpi-rgb-led-matrix.git
+[submodule "ApartmentFrameworkRust"]
+	path = ApartmentFrameworkRust
+	url = git@github.com:william-redenbaugh/ApartmentFrameworkRust.git
+[submodule "TeensyApartmentIntegrationTesting"]
+	path = TeensyApartmentIntegrationTesting
+	url = git@github.com:william-redenbaugh/TeensyApartmentIntegrationTesting.git
+[submodule "Python-ApartmentFramework-Testing"]
+	path = Python-ApartmentFramework-Testing
+	url = git@github.com:william-redenbaugh/Python-ApartmentFramework-Testing.git
+[submodule "ApartmentProtobuff"]
+	path = ApartmentProtobuff
+	url = git@github.com:william-redenbaugh/ApartmentProtobuff.git
+[submodule "ApartmentFrameworkCPP"]
+	path = ApartmentFrameworkCPP
+	url = git@github.com:william-redenbaugh/ApartmentFrameworkCPP.git
