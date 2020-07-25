@@ -16,3 +16,6 @@
 [submodule "ApartmentFrameworkCPP"]
 	path = ApartmentFrameworkCPP
 	url = git@github.com:william-redenbaugh/ApartmentFrameworkCPP.git
+[submodule "ApartmentFrameworkESP32"]
+	path = ApartmentFrameworkESP32
+	url = git@github.com:william-redenbaugh/ApartmentFrameworkESP32.git
