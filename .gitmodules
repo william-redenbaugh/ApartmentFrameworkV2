@@ -28,3 +28,6 @@
 [submodule "WoodClockESP8266/lib/Adafruit-GFX-Library"]
 	path = WoodClockESP8266/lib/Adafruit-GFX-Library
 	url = git@github.com:william-redenbaugh/Adafruit-GFX-Library.git
+[submodule "WoodClockESP8266/lib/ChRt"]
+	path = WoodClockESP8266/lib/ChRt
+	url = git@github.com:william-redenbaugh/ChRt.git
