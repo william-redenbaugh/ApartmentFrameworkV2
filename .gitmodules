@@ -19,3 +19,12 @@
 [submodule "ApartmentFrameworkESP32"]
 	path = ApartmentFrameworkESP32
 	url = git@github.com:william-redenbaugh/ApartmentFrameworkESP32.git
+[submodule "WoodClockESP8266/lib/LiquidCrystal_I2C"]
+	path = WoodClockESP8266/lib/LiquidCrystal_I2C
+	url = git@github.com:johnrickman/LiquidCrystal_I2C.git
+[submodule "WoodClockESP8266/lib/arduino-Max72xxPanel"]
+	path = WoodClockESP8266/lib/arduino-Max72xxPanel
+	url = git@github.com:markruys/arduino-Max72xxPanel.git
+[submodule "WoodClockESP8266/lib/Adafruit-GFX-Library"]
+	path = WoodClockESP8266/lib/Adafruit-GFX-Library
+	url = git@github.com:william-redenbaugh/Adafruit-GFX-Library.git
