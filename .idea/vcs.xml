@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/ApartmentFrameworkCPP" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/ApartmentFrameworkESP32" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/ApartmentFrameworkESP32/ESP32Clock/lib/Adafruit_NeoPixel" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/ApartmentFrameworkESP32/ESP32Clock/lib/LedControl" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/ApartmentFrameworkESP32/ESP32Clock/lib/esp32-lcd" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/ApartmentFrameworkESP32/ESP32Clock/lib/nanopb" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/ApartmentFrameworkESP32/ESP32FrameworkExample/lib/nanopb" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/ApartmentFrameworkESP32/ESP32IRBlaster/lib/nanopb" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/ApartmentFrameworkESP32/ESP32MatrixBoard/lib/nanopb" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/ApartmentFrameworkESP32/ESP32Relayboard/lib/nanopb" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/ApartmentFrameworkESP32/HeaatApartmentIntegration" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/ApartmentFrameworkRust" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/ApartmentProtobuff" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/ApartmentProtobuff/nanopb" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Python-ApartmentFramework-Testing" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/TeensyApartmentIntegrationTesting" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/WoodClockESP8266/lib/Adafruit-GFX-Library" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/WoodClockESP8266/lib/LiquidCrystal_I2C" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/WoodClockESP8266/lib/arduino-Max72xxPanel" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/pi_matrix_code/rpi-rgb-led-matrix" vcs="Git" />
+  </component>
+</project>
